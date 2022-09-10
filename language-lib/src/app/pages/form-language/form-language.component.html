@@ -1,0 +1,170 @@
+<div class="form-language">
+  <form fxLayout="column" [formGroup]="form" fxLayoutGap="1rem">
+    <div>
+      <h5>
+        {{
+          levelLanguage
+            ? ("Modifier la langue value"
+              | translate: { value: levelLanguage.lang })
+            : ("Ajouter une langue" | translate)
+        }}
+      </h5>
+    </div>
+    <div
+      fxLayout.lt-md="column"
+      fxLayout.gt-sm="row"
+      fxLayoutGap="1rem"
+      fxLayoutAlign="space-between center"
+      class="w-100"
+    >
+      <div fxFlex class="w-100">
+        <div>
+          <label for="lang" class="form-label">
+            {{ "Choisir une langue" | translate }}
+          </label>
+          <select class="form-select" id="lang" formControlName="lang">
+            <option value="">
+              {{ "Selectionner un element" | translate }}
+            </option>
+            <option
+              class="text-capitalize"
+              [value]="cl.key"
+              *ngFor="let cl of CONSTANTS_LANGUAGE"
+            >
+              {{ cl.value | translate }}
+            </option>
+          </select>
+        </div>
+        <div
+          *ngIf="!displayFieldMessageError('lang')"
+          [style]="{ marginTop: '5px' }"
+        >
+          <div
+            class="text-danger small mb-2"
+            *ngIf="customErrorField('lang', 'required')"
+          >
+            {{ "Langue requise!" | translate }}
+          </div>
+        </div>
+      </div>
+      <div fxFlex class="w-100">
+        <div>
+          <label for="levelSpeak" class="form-label">
+            {{ "Niveau parlé" | translate }}
+          </label>
+          <select
+            class="form-select"
+            id="levelSpeak"
+            formControlName="levelSpeak"
+          >
+            <option value="">
+              {{ "Selectionner un element" | translate }}
+            </option>
+            <option
+              [value]="cl"
+              class="text-capitalize"
+              *ngFor="let cl of CONSTANTS_LEVEL"
+            >
+              {{ cl | translate }}
+            </option>
+          </select>
+        </div>
+        <div
+          *ngIf="!displayFieldMessageError('levelSpeak')"
+          [style]="{ marginTop: '5px' }"
+        >
+          <div
+            class="text-danger small mb-2"
+            *ngIf="customErrorField('levelSpeak', 'required')"
+          >
+            {{ "Niveau parlé requis!" | translate }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      fxLayout.lt-md="column"
+      fxLayout.gt-sm="row"
+      fxLayoutGap="1rem"
+      fxLayoutAlign="space-between center"
+      class="w-100"
+    >
+      <div fxFlex class="w-100">
+        <div>
+          <label for="lang" class="form-label">
+            {{ "Niveau écrit" | translate }}
+          </label>
+          <select
+            class="form-select"
+            id="levelWrite"
+            formControlName="levelWrite"
+          >
+            <option value="">
+              {{ "Selectionner un element" | translate }}
+            </option>
+            <option
+              [value]="cl"
+              class="text-capitalize"
+              *ngFor="let cl of CONSTANTS_LEVEL"
+            >
+              {{ cl | translate }}
+            </option>
+          </select>
+        </div>
+        <div
+          *ngIf="!displayFieldMessageError('levelWrite')"
+          [style]="{ marginTop: '5px' }"
+        >
+          <div
+            class="text-danger small mb-2"
+            *ngIf="customErrorField('levelWrite', 'required')"
+          >
+            {{ "Niveau écrit requis!" | translate }}
+          </div>
+        </div>
+      </div>
+      <div fxFlex class="w-100">
+        <div>
+          <label for="levelComprehension" class="form-label">
+            {{ "Niveau compréhension" | translate }}
+          </label>
+          <select
+            class="form-select"
+            id="levelComprehension"
+            formControlName="levelComprehension"
+          >
+            <option value="">
+              {{ "Selectionner un element" | translate }}
+            </option>
+            <option
+              [value]="cl"
+              class="text-capitalize"
+              *ngFor="let cl of CONSTANTS_LEVEL"
+            >
+              {{ cl | translate }}
+            </option>
+          </select>
+        </div>
+        <div
+          *ngIf="!displayFieldMessageError('levelComprehension')"
+          [style]="{ marginTop: '5px' }"
+        >
+          <div
+            class="text-danger small mb-2"
+            *ngIf="customErrorField('levelComprehension', 'required')"
+          >
+            {{ "Niveau compréhension requis!" | translate }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <button
+        class="btn btn-primary"
+        [disabled]="form.invalid || form.pristine"
+      >
+        {{ "Enregistrer" | translate }}
+      </button>
+    </div>
+  </form>
+</div>

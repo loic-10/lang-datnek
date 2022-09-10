@@ -1,0 +1,46 @@
+<div class="single-language">
+  <div
+    class="card p-2"
+    fxLayout="row wrap"
+    fxLayoutAlign="space-between center"
+  >
+    <div fxLayout="row wrap" fxLayoutAlign="space-between center">
+      <div class="p-2">
+        <span class="fw-bold">
+          {{ levelLanguage.lang | translate }}
+        </span>
+      </div>
+      <div class="p-2">
+        <span class="fw-bold"> {{ "Niveau parlé" | translate }} : </span>
+        <span class="fw-normal text-capitalize">
+          {{ levelLanguage.levelSpeak | translate }}
+        </span>
+      </div>
+      <div class="p-2">
+        <span class="fw-bold"> {{ "Niveau écrit" | translate }} : </span>
+        <span class="fw-normal text-capitalize">
+          {{ levelLanguage.levelWrite | translate }}
+        </span>
+      </div>
+      <div class="p-2">
+        <span class="fw-bold">
+          {{ "Niveau compréhension" | translate }} :
+        </span>
+        <span class="fw-normal text-capitalize">
+          {{ levelLanguage.levelComprehension | translate }}
+        </span>
+      </div>
+    </div>
+    <div fxLayoutGap="0.5rem" fxLayout="row" class="p-2">
+      <button class="btn btn-success" (click)="startUpdate()">
+        {{ "Modifier" | translate }}
+      </button>
+      <button class="btn btn-warning" (click)="startDetail()">
+        {{ "Détail" | translate }}
+      </button>
+      <button class="btn btn-danger" (click)="startDelete()">
+        {{ "Supprimer" | translate }}
+      </button>
+    </div>
+  </div>
+</div>

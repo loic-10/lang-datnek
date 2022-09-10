@@ -1,0 +1,41 @@
+<div class="app bg-light">
+  <div class="container py-5" fxLayoutGap="1rem" fxLayout="column">
+    <div fxLayoutGap="1rem" fxLayout="column">
+      <div
+        fxLayoutGap="1rem"
+        fxLayout="row"
+        fxLayoutAlign="space-between center"
+      >
+        <ul class="nav nav-pills">
+          <li class="nav-item" *ngFor="let cl of CONSTANTS_LANGUAGE">
+            <a
+              class="nav-link text-capitalize {{
+                lang.key === cl.key ? 'active' : ''
+              }}"
+              style="cursor: pointer"
+              (click)="changeLang(cl)"
+            >
+              {{ cl.value | translate }}
+            </a>
+          </li>
+        </ul>
+        <div>
+          <button class="btn btn-{{ modalState | langColor }}">
+            <span *ngIf="modalState === 'close'">
+              {{ "Modal fermé" | translate }}
+            </span>
+            <span *ngIf="modalState === 'open'">
+              {{ "Modal ouvert" | translate }}
+            </span>
+          </button>
+        </div>
+      </div>
+      <h3 class="text-success text-capitalize">{{ lang.value | translate }}</h3>
+    </div>
+    <lang-detail
+      (modalStateHandler)="modalStateHandler($event)"
+      #detailLanguageModal
+    ></lang-detail>
+    <lang [detailLanguageModal]="detailLanguageModal"></lang>
+  </div>
+</div>

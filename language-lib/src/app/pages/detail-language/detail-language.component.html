@@ -1,0 +1,55 @@
+<div
+  class="modal fade detail-language"
+  #detailLanguageModalRef
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="staticBackdropLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">
+          {{ "Détail" | translate }}
+        </h5>
+        <button
+          (click)="hide()"
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body" *ngIf="levelLanguage">
+        <div fxLayout="column" fxLayoutGap="1rem">
+          <div>
+            <span class="fw-bold">
+              {{ levelLanguage.lang | translate }}
+            </span>
+          </div>
+          <div>
+            <span class="fw-bold"> {{ "Niveau parlé" | translate }} : </span>
+            <span class="fw-normal text-capitalize">
+              {{ levelLanguage.levelSpeak | translate }}
+            </span>
+          </div>
+          <div>
+            <span class="fw-bold"> {{ "Niveau écrit" | translate }} : </span>
+            <span class="fw-normal text-capitalize">
+              {{ levelLanguage.levelWrite | translate }}
+            </span>
+          </div>
+          <div>
+            <span class="fw-bold">
+              {{ "Niveau compréhension" | translate }} :
+            </span>
+            <span class="fw-normal text-capitalize">
+              {{ levelLanguage.levelComprehension | translate }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

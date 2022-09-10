@@ -1,0 +1,32 @@
+<div class="language">
+  <div
+    fxLayout.lt-md="column"
+    fxLayout.gt-sm="row"
+    fxLayoutAlign.gt-sm="space-between center"
+    fxLayoutAlign.lt-md="space-between stretch"
+    fxLayoutGap="2rem"
+    class="pb-4 border-bottom mb-3"
+    fxFill
+  >
+    <lang-form fxFlex="auto"></lang-form>
+    <div
+      fxFlex
+      class="p-5 bg-primary text-white rounded text-center"
+      fxLayout="column"
+      fxLayoutAlign="center center"
+      fxLayoutGap="0.5rem"
+    >
+      <h3>{{ "Nombre de langue" | translate }}</h3>
+      <span class="fs-5"> 2 </span>
+    </div>
+  </div>
+
+  <div fxLayout="column" fxLayoutAlign="start stretch" fxLayoutGap="1rem">
+    <h5>{{ "Liste des langues" | translate }}</h5>
+    <lang-single
+      [detailLanguageModal]="detailLanguageModal"
+      [levelLanguage]="levelLanguage"
+      *ngFor="let levelLanguage of levels$ | async"
+    ></lang-single>
+  </div>
+</div>
